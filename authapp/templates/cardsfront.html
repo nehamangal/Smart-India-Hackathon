@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <title>Mentoring</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css\cards.css' %}">
+    <script src="https://kit.fontawesome.com/eba86a9167.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        <a style="text-decoration: none; color: cornflowerblue;" href="{% url 'userapp:profile' %}" class="loginBtn"><button style="color:aqua" class="gs">Profile</a>
+    </div>
+    <ul class="nav">
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li>
+            <a class="navi" id="active" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+    </ul>
+
+    <div>
+
+        <div class="container">
+            <div class="cards">
+                <div class="content">
+                    <h2>1</h2>
+                    <h3>Idea Validation</h3>
+                    <p>Idea validation is the process of testing business ideas to understand their viability. It helps to prove the market need and target audience’s willingness to pay.</p>
+                    <a href="{% url 'userapp:idea' %}">Dive into it</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="content">
+                    <h2>2</h2>
+                    <h3>Pitch Deck</h3>
+                    <p>A pitch deck is a brief presentation, often created using PowerPoint, Keynote or Prezi, used to provide your audience with a quick overview of your business plan.</p>
+                    <a href="{% url 'userapp:pich' %}">Dive into it</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="content">
+                    <h2>3</h2>
+                    <h3>Let's Team Up</h3>
+                    <p>First, identify the voids of your startup to easily identify the skill sets required to satisfy your company's needs.</p>
+                    <a href="{% url 'userapp:getmentor' %}">Dive into it</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="content">
+                    <h2>4</h2>
+                    <h3>Go To Market Strategy</h3>
+                    <p>A go-to-market (GTM) strategy is a step-by-step plan created to successfully launch a product to market. </p>
+                    <a href="{% url 'userapp:go' %}">Dive into it</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="content">
+                    <h2>5</h2>
+                    <h3>Revenue Models</h3>
+                    <p>A revenue model is a blueprint that shows how a startup business will earn revenue or gross income from its standard business operations, and how it will pay for operating costs and expenses.</p>
+                    <a href="{% url 'userapp:revenue' %}">Dive into it</a>
+                </div>
+            </div>
+            <div class="cards">
+                <div class="content">
+                    <h2>6</h2>
+                    <h3>Prototyping</h3>
+                    <p>Prototyping is an experimental process where design teams implement ideas into tangible forms from paper to digital. Teams build prototypes of varying degrees of fidelity to capture design concepts and test on users.</p>
+                    <a href="{% url 'userapp:prototype' %}">Dive into it</a>
+                </div>
+            </div>
+
+            <div class="cards">
+                <div class="content">
+                    <h2>7</h2>
+                    <h3>Fundraising</h3>
+                    <p>It is a financial investment in a company for product development, manufacturing, expansion, sales and marketing, office spaces, and inventory. </p>
+                    <a href="{% url 'userapp:fundraising' %}">Dive into it</a>
+                </div>
+            </div>
+
+        </div>
+        <footer id="footer">
+            <i class="social-icons fab fa-facebook"></i>
+            <i class="social-icons fab fa-twitter"></i>
+            <i class="social-icons fab fa-instagram"></i>
+            <i class="social-icons far fa-envelope"></i>
+            <p>© Copyright 2022 SIH</p>
+
+        </footer>
+        <script type="text/javascript" src="{% static 'js\vanilla-tilt.js' %}"></script>
+        <script>
+            VanillaTilt.init(document.querySelectorAll(".cards"), {
+                max: 25,
+                speed: 400,
+                glare: true,
+                "max-glare": 1,
+            });
+        </script>
+</body>
+
+</html>

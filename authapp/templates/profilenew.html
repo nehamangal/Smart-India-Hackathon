@@ -1,0 +1,17 @@
+{% extends 'profile.html' %} {% block content %}
+<!--See Image Uploaded-->
+
+<div class="row">
+    {% if messages %} {% for message in messages%}<small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>{% endfor %}{% endif %} --> {% if file_url %}
+    <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+        <img style="width: 200px; height: 200px; border-radius: 3px;position: absolute;top: 0;left: 0;" src="{{ file_url }}" class="img-fluid">
+        <br> {% else %} {% endif %}
+    </div>
+
+</div>
+<a href="{% url 'userapp:main' %}">Home page</a>
+<div class="anchor">
+    <a href="{% url 'userapp:logout' %}">Logout</a>
+    <br><br> <a href="{% url 'userapp:changepass' %}">Change Password</a>
+
+</div> {% endblock %}

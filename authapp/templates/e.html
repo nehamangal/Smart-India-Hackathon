@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <title>Mentors</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css\accv.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+
+    <script src="https://kit.fontawesome.com/eba86a9167.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .container1 a {
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            margin-left: 11rem;
+            font-family: 'Raleway';
+        }
+        
+        .container1 a:hover {
+            color: grey;
+        }
+        
+        .container1 a:active {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        <a style="text-decoration: none; color: cornflowerblue;" href="{% url 'userapp:profile' %}" class="loginBtn"><button style="color:aqua;font-size: 1rem;" class="gs">Profile</a>
+    </div>
+    <ul class="nav">
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li>
+            <a class="navi" id="active" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+    </ul>
+    <br><br>
+    <div class="container1">
+
+        <span class="incubation-center">
+            <a href="{% url 'userapp:map' %}" style="margin-left:23rem">Find Incubation Center Near You</a>
+        </span>
+        <span class="incubation-center">
+            <a href="{% url 'userapp:joinhub' %}" style="margin-left:15rem">Join Hubs</a>
+        </span>
+
+
+    </div>
+
+
+    <div class="container">
+        <div class="cards">
+
+            <div class="content">
+                <img src="{% static 'media/4.jpg' %}" alt="Avatar" style="width:100%">
+                <h3><b>Tanishk Sharma</b></h3>
+                <p>Archit solutions</p>
+                <p>Startup founded in 2018|| TECH||$105 million revenue in last year<br>
+                    <p>
+                        <a href="https://www.linkedin.com/login">LinkedIn</a>
+                        <a href="nae@gmail.com">E-Mail</a>
+
+            </div>
+        </div>
+        <div class="cards">
+
+            <div class="content">
+                <img src="{% static 'media/5.jpeg' %}" alt="Avatar" style="width:100%">
+                <h3><b>Naman Jain</b></h3>
+                <p>Jain Solutions</p>
+                <p>Startup founded in 2018|| FINTECH||$10 million revenue in last year<br>
+                    <p>
+                        <a href="https://www.linkedin.com/login">LinkedIn</a>
+                        <a href="nae@gmail.com">E-Mail</a>
+
+            </div>
+        </div>
+        <div class="cards">
+
+            <div class="content">
+                <img src="{% static 'media/6.jpeg' %}" alt="Avatar" style="width:100%">
+                <h3><b>Praval Soni</b></h3>
+                <p>Soni Solution</p>
+                <p>Startup founded in 2015|| AGRITECH||$100 million revenue in last year<br>
+                    <p>
+                        <a href="https://www.linkedin.com/login">LinkedIn</a>
+                        <a href="naeak@gmail.com">E-Mail</a>
+
+            </div>
+        </div>
+    </div>
+    <footer id="footer">
+        <i class="social-icons fab fa-facebook"></i>
+        <i class="social-icons fab fa-twitter"></i>
+        <i class="social-icons fab fa-instagram"></i>
+        <i class="social-icons far fa-envelope"></i>
+        <p>© Copyright 2022 SIH</p>
+
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+    <link type="text/css" rel="stylesheet" href="../static/css/dashboard.css" title="news">
+
+    <title>Dashboard</title>
+
+</head>
+
+<body>
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        <!-- <img class="avatar" src="./andy-kelly-0E_vhMVqL9g-unsplash.jpg"></img> -->
+        <a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</a>
+
+    </div>
+    <ul class="nav">
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li><a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a></li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" id="active" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+    </ul>
+
+    <h1 style="color: white;text-align: center;">Note Down Your Idea</h1>
+    <div class="dashboard">
+
+        <div class="left">
+            <button class="addBtn">&plus;</button>
+        </div>
+
+        <div class="right">
+            {% for i in completeInfo %}
+            <div class="ideaDetails">
+                <div class="ideaDetailsTop">
+                    <h3 class="nameOfIdea">Startup Name: {{i.name}}</h3>
+                </div>
+                <span class="fields d_none">Fields: {{i.field}}</span>
+
+                <h6 class="targetMarket">Target Market: {{i.targetMarket}}</h6>
+
+                <span class="maeketSize">Market Size: {{i.marketSize}}</span>
+                <p class="desc d_none">Description: {{i.description}}</p>
+                <div>Traction: {{i.marketSize1}}</div>
+                <div>Monthly Average Users: {{i.marketSize2}}</div>
+                <div>Daily Average Users: {{i.marketSize3}}</div>
+                <div class="bottom d_none">
+                    <div class="btns">
+                        <img src="{% static 'media/dashboard-edit-40.png' %}" alt="" width="25px">
+                        <img src="{% static 'media/dashboard-delete-32.png' %}" alt="" width="30px">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div id="popUpBg" class="popUpBg d_none">
+        <div id="popUpWindow" style="background-color: black;height: 70%;width: 40%;">
+            <div class="popUpWindowTop">
+                <h1>Form</h1>
+                <i class="timesIcon" id="closePopUp">&times;</i>
+            </div>
+            <hr>
+            <form action="" class="form" id="form" method="POST">
+                {% csrf_token %}
+                <fieldset class="ideaName">
+                    <legend for="name">Startup Name</legend>
+                    <input type="text" id="nameInput" name="name" style="background-color: black;">
+                </fieldset>
+                <fieldset class="description">
+                    <legend for="decription">Description</legend>
+                    <textarea id="desc" cols="30" rows="1" name="description" style="background-color: black;"></textarea>
+                </fieldset>
+                <fieldset class="field">
+                    <legend for="field">Field</legend>
+                    <input type="text" id="fieldInput" list="suggestions" name="field" multiple style="background-color: black;">
+                    <datalist id="suggestions" style="background-color: black;">
+                        <option>option 1</option>
+                        <option>option 2</option>
+                        <option>option 3</option>
+                    </datalist>
+                </fieldset>
+                <fieldset class="targetMarket">
+                    <legend for="targetMarket">Target Market (Age Group)</legend>
+                    <div class="item item_1">
+                        <input type="radio" id='option1' name="targetMarket" value="less than 18 years">
+                        <label for="option1">less than 18 years</label>
+                    </div>
+                    <div class="item item_2">
+                        <input type="radio" id='option2' name="targetMarket" value="18-30 years">
+                        <label for="option2">18-30 years</label>
+                    </div>
+                    <div class="item item_3">
+                        <input type="radio" id='option3' name="targetMarket" value="30-60 years">
+                        <label for="option3">30-60 years</label>
+                    </div>
+                    <div class="item item_4">
+                        <input type="radio" id='option3' name="targetMarket" value="above 60 years">
+                        <label for="other">above 60 years</label>
+                    </div>
+                </fieldset>
+                <fieldset class="marketSize">
+                    <legend for="marketSize">Market Size</legend>
+                    <select name="marketSize" id="marketSize" style="background-color: black;">
+                        <option value="less than 1 Million">less than 1 Million</option>
+                        <option value="1-10 Million">1-10 Million</option>
+                        <option value="10-100 Million">10-100 Million</option>
+                        <option value="more than 100 Million">more than 100 Million</option>
+                    </select>
+                </fieldset>
+                <fieldset class="marketSize">
+                    <legend for="marketSize">Traction</legend>
+                    <select name="marketSize1" id="marketSize" style="background-color: black;">
+                        <option value="less than 1 Million">less than 1 Million</option>
+                        <option value="1-10 Million">1-10 Million</option>
+                        <option value="10-100 Million">10-100 Million</option>
+                        <option value="more than 100 Million">more than 100 Million</option>
+                    </select>
+                </fieldset>
+                <fieldset class="marketSize">
+                    <legend for="marketSize">Monthly Average Users (MAU)</legend>
+                    <select name="marketSize2" id="marketSize" style="background-color: black;">
+                        <option value="less than 1 Million">less than 1 Million</option>
+                        <option value="1-10 Million">1-10 Million</option>
+                        <option value="10-100 Million">10-100 Million</option>
+                        <option value="more than 100 Million">more than 100 Million</option>
+                    </select>
+                </fieldset>
+                <fieldset class="marketSize">
+                    <legend for="marketSize">Daily Average Users (DAU)</legend>
+                    <select name="marketSize3" id="marketSize" style="background-color: black;">
+                        <option value="less than 10 Thousand">less than 10 Thousand</option>
+                        <option value="10-100 Thousand">10-100 Thousand</option>
+                        <option value="more than 100 Thousand">more than 100 Thousand</option>
+                    </select>
+                </fieldset>
+                <button id="submitBtn">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="{% static 'js/dashboard.js' %}"></script>
+
+</html>

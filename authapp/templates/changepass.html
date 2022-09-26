@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Password</title>
+</head>
+
+<body>
+    <form action="" method="post">
+        {% csrf_token %}{% if form.non_field_errors %} {% for error in form.non_field_errors %}
+        <p class="er">{{error}}</p>{% endfor %} {% endif %} {% for fm in form %}
+        <p class="fields">{{fm.label_tag}}<br> {{fm}} {{fm.errors| striptags}}</p> {% endfor %}<br><br>
+        <input style="padding: 0.3em 2em;color: white;margin-left: 11em;cursor:pointer;font-size: 1em;" style="color: white;" type="submit" value="Save">
+        <a href="{% url 'userapp:profile' %}">Profile</a>
+        <br>
+    </form>
+</body>
+
+</html>

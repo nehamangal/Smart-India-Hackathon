@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\s.css' %}">
+
+    <title>Join Hub</title>
+    <style>
+        body {
+            background-color: #111;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        <a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</a>
+    </div>
+    <ul class="nav">
+        <li><a class="navi" href="{% url 'userapp:base' %}">Home</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" id="active" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+    </ul>
+
+    <ul class="cards">
+        <li>
+            <a href="" class="card">
+                <img src="{% static 'media/b.jpg' %}" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+
+
+                        <div class="card__header-text">
+                            <h3 class="card__title">
+                                BEGINNERS
+                            </h3>
+
+                        </div>
+                    </div>
+                    <p class="card__description">Join Our Discord Group</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="card">
+                <img src="{% static 'media/mt.jpg' %}" style="height: 390px; width: 100%;" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+
+
+                        <div class="card__header-text">
+                            <h3 class="card__title">MEDICAL HUB</h3>
+
+                        </div>
+                    </div>
+                    <p class="card__description">Stay Tuned for this... Till then join the beginners community</p>
+                </div>
+            </a>
+        </li>
+        <!-- <br> -->
+        <li>
+            <a href="" class="card">
+                <img src="{% static 'media/e.jpg' %}" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+
+                        <div class="card__header-text">
+                            <h3 class="card__title">ECOMMERCE HUB</h3>
+
+
+                        </div>
+                    </div>
+                    <p class="card__description">Stay Tuned for this... Till then join the beginners community</p>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="" class="card">
+                <img src="{% static 'media/ft.jpg' %}" style="height: 400px; width: 100%;" class="card__image" alt="" />
+                <div class="card__overlay">
+                    <div class="card__header">
+
+
+                        <div class="card__header-text">
+                            <h3 class="card__title">FINTECH HUB</h3>
+
+                        </div>
+                    </div>
+                    <p class="card__description">Stay Tuned for this... Till then join the beginners community</p>
+                </div>
+            </a>
+        </li>
+    </ul>
+
+</body>
+
+</html>

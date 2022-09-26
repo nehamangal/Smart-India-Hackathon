@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .container a {
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            margin-left: 11rem;
+            font-family: 'Raleway';
+        }
+        
+        .container a:hover {
+            color: grey;
+        }
+        
+        .container a:active {
+            color: blue;
+        }
+        
+        .networking {
+            background-color: aliceblue;
+            border: 1px solid green;
+            border-radius: 0.5rem;
+            background-color: rgb(244, 245, 217);
+            text-align: center;
+            color: darkblue;
+            width: 11rem;
+        }
+        
+        .row {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+
+        <a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</button></a>
+
+    </div>
+
+    <ul class="nav">
+
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" id="active" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+
+    </ul>
+    <br>
+    <div class="container">
+        <a id="active" href="{% url 'userapp:networking' %}">Network</a>
+        <span class="incubation-center">
+            <a href="{% url 'userapp:map' %}">Find Incubation Center Near You</a>
+        </span>
+        <span class="incubation-center">
+            <a href="{% url 'userapp:joinhub' %}">Join Hubs</a>
+        </span>
+        <span class="incubation-center">
+            <a href="{% url 'userapp:investors' %}">Investors</a>
+        </span>
+
+    </div><br> {% for i in showall %}
+
+
+
+
+
+
+
+    <div class="networking" style="border: 1px solid black; float: right;margin-right:6rem;margin-top: 30px;padding-bottom: 15rem;padding-top: 3rem;padding-left: 1rem; padding-right: 3rem;">
+        {{i.name}}
+        <br><br> {{ i.email }}
+        <!--Simple Form-->
+        <br>
+    </div>
+    {% endfor %}
+    <!--See Image Uploaded-->
+
+    <div class="row">
+        {% if file_url %}
+        <div class="col-lg-4 col-md-6 col-sm-12 pb-4">
+            <img style="width: 200px; height: 200px; position: absolute;top: 21rem;left: 13rem;" src="{{ file_url }}" class="img-fluid">
+            <br> {% else %} {% endif %}
+        </div>
+    </div>
+    <img style="width: 200px; height: 200px;position: absolute;top: 21rem;left: 4rem;border-radius: 9rem;box-shadow: 2px 2px rgb(64, 240, 181);" src="{% static 'media/profile1.jpeg' %}" alt="">
+    <img style="width: 200px; height: 200px;position: absolute;top: 21rem;left: 26rem;border-radius: 9rem;box-shadow: 2px 2px rgb(64, 240, 181);" src="{% static 'media/profile2.jpeg' %}" alt="">
+    <img style="width: 200px; height: 200px;position: absolute;top: 21rem;left: 46rem;border-radius: 9rem;box-shadow: 2px 2px rgb(64, 240, 181);" src="{% static 'media/profile4.jpeg' %}" alt="">
+    <img style="width: 200px; height: 200px;position: absolute;top: 21rem;left: 68rem;border-radius: 9rem;box-shadow: 2px 2px rgb(64, 240, 181);" src="{% static 'media/profile5.jpeg' %}" alt="">
+
+
+    <a href="https://mail.google.com/mail/u/0/#inbox?compose=new">
+        <img style="width: 25px; height: 25px; position: absolute;top: 14rem;left: 4rem;cursor: pointer;" src="{% static 'media/email.jpg' %}" alt="">
+        <img style="width: 25px; height: 25px; position: absolute;top: 14rem;left: 25rem;cursor: pointer;" src="{% static 'media/email.jpg' %}" alt="">
+        <img style="width: 25px; height: 25px; position: absolute;top: 14rem;left: 46rem;cursor: pointer;" src="{% static 'media/email.jpg' %}" alt="">
+        <img style="width: 25px; height: 25px; position: absolute;top: 14rem;left: 67rem;cursor: pointer;" src="{% static 'media/email.jpg' %}" alt="">
+    </a>
+
+
+</body>
+
+</html>

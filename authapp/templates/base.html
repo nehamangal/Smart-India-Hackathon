@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+
+    <title> {% block title %}Entre Hub{% endblock %}</title>
+    {% block style %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        {% block url %}
+        <a href="{% url 'userapp:signup' %}" class="loginBtn"><button class="gs"> Get Started</button></a>
+        <a href="{% url 'userapp:login' %}" class="loginBtn"><button class="gs">Login</button></a> {% endblock %} {% block nav %}
+    </div>
+    <ul class="nav">
+
+        <li><a class="navi" href="{% url 'userapp:base' %}">Home</a></li>
+        <li><a class="navi" href="{% url 'userapp:cardsfront' %}">Explore</a></li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+    </ul>
+
+    {% endblock %} {% block content %}
+    <div class="image">
+        <div>
+            <p class="intro ">First Foot Forward,<br><a href="#" class="nowlink "><span class="now ">NOW!</span></a>
+            </p>
+        </div>
+        <div class="parallax1 ">
+        </div>
+    </div>
+    <div class="first ">
+        <div class="first2"><img src="../static/media/news.gif" alt=""></div>
+        <div class="first1 ">
+            <br>
+            <p class="designhead">
+                Get latest <span style="padding-left: none;" class="designhead1">NEWS</span><span style="padding-left: 1rem;">Updates</span>
+            </p>
+            <p class="designtext">
+                ENTRE HUB facilitates you with the latest entrepreneurial news from all over the globe for you to stay up-to-dateabout the startup ecosystem.
+            </p>
+            <!-- <p class="designlink ">
+                <a href="{% url 'userapp:idea' %}" class="designlink1 "><b>IDEA BOARD<i class="ion-android-arrow-forward "></i></b></a> -->
+            </p>
+        </div>
+    </div>
+    <div class="second ">
+        <div class="second1 ">
+            <br>
+            <p class="codehead ">Join <span class="codehead1">Communities</span>
+            </p>
+            <p class="codetext ">
+                With ENTRE HUB, you can join communities on platforms like Discord to connect with like-minded people
+            </p>
+            <!-- <p class="codelink ">
+                <a href="{% url 'userapp:pich' %}" class="codelink1 "><b>See how it works<i class="ion-android-arrow-forward "></i></b></a>
+            </p> -->
+        </div>
+        <div class="second2"><img src="../static/media/comm.gif" alt=""></div>
+    </div>
+    <div class="third">
+        <div class="third2"><img src="../static/media/networking.png" alt=""></div>
+        <div class="third1 ">
+            <p class="buyhead">
+                Amazing <span class="buyhead1 ">Network</span>
+            </p>
+            <p class="buytext">
+                ENTRE HUB facilitates you to connect with mentors and investors for you to pitch to them and stay in touch.
+            </p>
+            <!-- <p class="buylink">
+                <a href="{% url 'userapp:fundraising' %}" class="buylink1 "><b>Connect NOW<i class="ion-android-arrow-forward "></i></b></a>
+            </p> -->
+        </div>
+    </div>
+    <!--<div class="fourth ">
+    <div class="parallax2 ">
+        <div class="blackbg ">
+            <p class="quote ">"Botflex believes in introducing <br>robotics to every household."</p>
+            <p class="author">TEAM, BOTFLEX</p>
+            <div class="blackbg1">
+                <div class="bfedu">
+                    <a href="#learn" class="edulink">
+                        <img src="{% static 'media/edu.png ' %}" class="eduimage">
+                        <button class="btned"><i class="ion-ios-book"></i> For Education </button>
+                    </a>
+                </div>
+                <div class="bfbn">
+                    <a href="#business" class="buslink">
+                        <img src="{% static 'media/busfin.png ' %}" class="busimage">
+                        <button class="btnbn"><i class="ion-android-cart"></i> For Business </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>-->
+
+
+
+    {% endblock %}
+
+
+
+    <script>
+        window.addEventListener('mouseover', initLandbot, {
+            once: true
+        });
+        window.addEventListener('touchstart', initLandbot, {
+            once: true
+        });
+        var myLandbot;
+
+        function initLandbot() {
+            if (!myLandbot) {
+                var s = document.createElement('script');
+                s.type = 'text/javascript';
+                s.async = true;
+                s.addEventListener('load', function() {
+                    var myLandbot = new Landbot.Livechat({
+                        configUrl: 'https://chats.landbot.io/v3/H-1191250-6R3JFXEPEKQCMK53/index.json',
+                    });
+                });
+                s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.js';
+                var x = document.getElementsByTagName('script')[0];
+                x.parentNode.insertBefore(s, x);
+            }
+        }
+    </script>
+
+    <!--<p class="codehead">
+                        Good at <span class="codehead1">PROGRAMMING?</span>
+            </p>
+            <hr class="hr" align="left">
+            <div class="codediv">
+                <ul class="codetext">
+                    <li class="codetext1">Become a member of the BOTFLEX Community.</li>
+                    <li class="codetext1">Provide solutions to the bot developers.</li>
+                    <li class="codetext1">Program your unique design and sell it on BOTMART.</li>
+
+                </ul>
+            </div>-->
+</body>
+
+</html>

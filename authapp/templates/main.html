@@ -1,0 +1,22 @@
+{% extends 'base.html' %}{% block url %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</a>
+
+
+</button>
+</a> {% endblock %}{% block nav %}
+<ul class="nav">
+
+    <li><a class="navi" id="active" href="{% url 'userapp:main' %}">Home</a></li>
+    <li>
+        <a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a>
+    </li>
+    <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+    <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+    <li> <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+    </li>
+
+</ul>
+
+
+{% endblock %}

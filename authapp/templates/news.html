@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\news.css' %}" title="news">
+
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+
+    <title>Treble Hub</title>
+</head>
+
+<body>
+    <div class="top">
+        <div class="name">Entre Hub</div>
+        <!-- <img class="avatar" src="{% static 'media/andy.jpg' %}"></img> -->
+        <a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</a>
+
+    </div>
+    <ul class="nav">
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" id="active" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+    </ul>
+    <div class="form">
+        <div class="newsSearch">
+            <input type="text" placeholder="Search..." class="newsInput">
+            <img src="{% static 'media/search.svg' %}" alt="">
+        </div>
+    </div>
+    <div class="newsContainer">
+    </div>
+    <div class="bottom">
+        <button class="getMore">
+            Get More
+        </button>
+    </div>
+
+
+</body>
+<script src="{% static 'js\news.js' %}"></script>
+
+</html>

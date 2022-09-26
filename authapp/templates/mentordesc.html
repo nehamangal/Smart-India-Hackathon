@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .container a {
+            text-align: center;
+            text-decoration: none;
+            font-size: 20px;
+            color: white;
+            margin-left: 11rem;
+            font-family: 'Raleway';
+        }
+        
+        .container a:hover {
+            color: grey;
+        }
+        
+        .container a:active {
+            color: blue;
+        }
+        
+        .networking {
+            background-color: aliceblue;
+            border: 1px solid green;
+            border-radius: 0.5rem;
+            background-color: rgb(244, 245, 217);
+            text-align: center;
+            color: darkblue;
+            width: 11rem;
+        }
+        
+        .row {
+            background-color: aliceblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="top">
+        <div class="name">Entre Hub</div>
+
+        <a href="{% url 'userapp:profile' %}" class="loginBtn"><button class="gs">Profile</button></a>
+
+    </div>
+
+    <ul class="nav">
+
+        <li><a class="navi" href="{% url 'userapp:main' %}">Home</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:getmentor' %}">Explore</a>
+        </li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" id="active" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Idea Board</a>
+        </li>
+
+    </ul>
+    <br>
+    <form action="" method="post" style="color: white;">
+        Mentor Name : <input type="text" name="name" id=""> <br><br> Experience : <input type="text" name="experience" id="">
+
+        <br><br> Education : <input type="text" name="education" id=" ">
+        <br><br> Currently Workout : <input type="text" name="currently" id=" ">
+        <br><br> Awards : <input type="text" name="awards" id=" ">
+
+    </form>
+</body>

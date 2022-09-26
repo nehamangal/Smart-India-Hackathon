@@ -1,0 +1,65 @@
+{% extends 'base.html' %}{% block title %} signup {% endblock %} {% block style %}
+<style>
+    .er {
+        color: red;
+    }
+    
+    body {
+        background-color: black;
+    }
+    
+    .form {
+        border: 1px solid white;
+        margin-top: 70px;
+        margin-right: 200px;
+        padding: 20px;
+        width: 19em;
+        height: 400px;
+        border-radius: 1em;
+        box-shadow: 1px 2px rgba(43, 235, 219, 0.493);
+        background-color: white;
+        line-height: 1.5rem;
+        float: right;
+    }
+    
+    .signup {
+        text-decoration: none;
+        color: cornflowerblue;
+        background-color: white;
+        margin-left: 8px;
+    }
+    
+    .fields {
+        font-family: 'Raleway';
+        padding-left: 0.2em;
+        line-height: 1.6em;
+        padding-top: 0rem;
+        margin-top: 0;
+        border-radius: 8px;
+        padding: 4px;
+        color: #111;
+    }
+    
+    .left-image {
+        background-image: url("/static/media/login.png");
+        width: 500px;
+        height: 1000px;
+        position: absolute;
+        top: 11rem;
+        left: 6rem;
+        background-size: 500px 500px;
+        background-repeat: no-repeat;
+    }
+</style> {% endblock %}{% block content %}
+<form class="form" style="color: white;" action="" method="post">
+    <p style="font-family :Advent Pro ; color:black;background-color: white;font-size:70px;padding-top: none;"> LOGIN</p>
+
+    {% csrf_token %} {% if form.non_field_errors %} {% for error in form.non_field_errors %}
+    <p class="er">{{error}}</p>{% endfor %} {% endif %} {% for fm in form %}
+    <p class="fields">{{fm.label_tag}}<br>{{fm}}{{fm.errors|striptags}}</p>
+    {% endfor %}
+    <p style="background-color: white; padding: none;margin-left: 8px;font-family:Raleway;color: black;font-size: 12px;">If not Registered?<a class="signup" href="{% url 'userapp:signup' %}">Register Now</a></p>
+    <input style="margin-left: 4px;background-color: white;border-color: cornflowerblue;color: black;cursor:pointer;font-size: 1em;padding: 8px 20px;text-align: center;font-family:Raleway;border-radius: 8px;" type="submit" value="Login">
+    <div class="left-image"></div>
+</form>
+{% endblock %}

@@ -1,0 +1,200 @@
+:root {
+    --gradDark: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    --gradGB0: linear-gradient(to bottom, var(--green0), var(--blue0));
+    --white0: rgb(236, 236, 236);
+    --white1: azure;
+    --green0: #98f5e1;
+    --blue0: #90dbf4;
+    --blue1: #00b4d8;
+    --greenColor0: rgb(7, 51, 30);
+    --greenColor1: rgb(11, 97, 57);
+    --greenColor2: rgb(28, 146, 91);
+    --greenColor3: rgb(72, 197, 139);
+    --greenColor4: rgb(143, 202, 175);
+}
+
+.dashboard {
+    color: azure;
+    width: 100%;
+    padding: 2rem 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dashboard .left {
+    flex: 1;
+    padding: 0 0 10px 50px;
+    transform: translate(10px);
+}
+
+.dashboard .left button {
+    width: 6rem;
+    max-width: 80%;
+    height: 3rem;
+    max-height: 40px;
+    background: var(--gradGB0);
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 20px;
+    border: 2px solid var(--greenColor0);
+}
+
+.dashboard .left button:hover {
+    transform: scale(1.1);
+}
+
+.dashboard .right {
+    flex: 6;
+    display: flex;
+    padding-left: 10px;
+    padding-right: 20px;
+    flex-direction: column;
+    font-family: sans-serif;
+    gap: 30px;
+}
+
+.dashboard .right .ideaDetails {
+    border: 2px solid var(--green0);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.dashboard .right .ideaDetails .ideaDetailsTop {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 26px;
+}
+
+.dashboard .right .ideaDetails .ideaDetailsTop .nameOfIdea {
+    font-size: 26px;
+    margin: 6px 0;
+}
+
+.dashboard .right .ideaDetails .targetMarket {
+    font-style: none;
+    font-weight: 700;
+    font-size: 14px;
+    margin: 8px 0 4px 0;
+}
+
+.dashboard .right .ideaDetails .bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .right .ideaDetails .bottom .files {
+    display: flex;
+    cursor: pointer;
+    width: fit-content;
+    align-items: center;
+}
+
+.dashboard .right .ideaDetails .files img {
+    width: 20px;
+    height: 20px;
+}
+
+.dashboard .right .ideaDetails .bottom .files:hover {
+    text-decoration: underline;
+}
+
+.dashboard .right .ideaDetails .d_none {
+    display: none;
+}
+
+.dashboard .right .ideaDetails:hover .d_none {
+    display: block;
+}
+
+#popUpBg {
+    background: var(--gradDark);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+}
+
+#popUpBg #popUpWindow {
+    position: relative;
+    height: 50%;
+    overflow-y: scroll;
+    background-color: black;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 15px 15px 15px;
+    color: var(--white1);
+    -webkit-box-shadow: 7px 8px 18px -5px rgba(245, 245, 245, 0.25);
+    -moz-box-shadow: 7px 8px 18px -5px rgba(245, 245, 245, 0.25);
+    box-shadow: 7px 8px 18px -5px rgba(245, 245, 245, 0.25);
+    border-radius: 10px;
+    border: 2px solid #02778f;
+}
+
+#popUpBg #popUpWindow .popUpWindowTop {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#popUpBg #popUpWindow .popUpWindowTop h1 {
+    margin: 10px;
+}
+
+#popUpBg #popUpWindow .popUpWindowTop i {
+    font-size: 25px;
+    width: 40px;
+    cursor: pointer;
+}
+
+#popUpBg #popUpWindow #form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#popUpBg #popUpWindow #form>* {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+#popUpBg #popUpWindow #form>* *:nth-child(2) {
+    border: none;
+    outline: none;
+    color: var(--white1);
+    width: 100%;
+}
+
+#popUpBg #popUpWindow #form .targetMarket {
+    display: grid;
+    grid-template-columns: auto auto;
+}
+
+#popUpBg #popUpWindow #form .targetMarket .item {
+    display: flex;
+    justify-content: space-between;
+}
+
+#popUpBg #popUpWindow #form .targetMarket .item>* {
+    padding-right: 4px;
+}
+
+#popUpBg #popUpWindow #form input[type="file"] {
+    padding-left: 2px;
+}
+
+#popUpBg #popUpWindow #form #submitBtn {
+    margin-left: 2px;
+    width: 6rem;
+    background: var(--gradGB0);
+    font-size: 20px;
+    font-weight: 500;
+    height: 40px;
+}
+
+.d_none {
+    display: none;
+}

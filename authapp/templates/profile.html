@@ -1,0 +1,110 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <!-- <link rel="stylesheet" href="{% static 'css\profile.css' %}"> -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,600" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Advent+Pro" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:light" rel="stylesheet" type="text/css">
+    <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css">
+    <link type="text/css" rel="stylesheet" href="{% static 'css\style1.css' %}">
+
+
+    <style>
+        body {
+            background-color: #111;
+        }
+        
+        .profile-content {
+            border: 1px solid green;
+            margin: 1rem 1rem 0 3rem;
+            width: 45rem;
+            height: 30rem;
+            padding: 1rem;
+            color: black;
+            border-radius: 2rem;
+            line-height: 3rem;
+            background-color: white;
+            margin-left: 500px;
+        }
+        
+        .profile-content a {
+            text-decoration: none;
+            border-radius: 4rem;
+            border: 1px solid white;
+            color: #111;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top">
+        <div class="name">Entre Hub</div>
+
+    </div>
+
+    <ul class="nav">
+
+        <li><a class="navi" id="active" href="{% url 'userapp:main' %}">Home</a></li>
+        <li><a class="navi" href="{% url 'userapp:getmentor' %}">Get Mentor</a></li>
+        <li><a class="navi" href="{% url 'userapp:news' %}">Latest News</a></li>
+        <li><a class="navi" href="{% url 'userapp:networking' %}">Networking</a></li>
+        <li>
+            <a class="navi" href="{% url 'userapp:dashboard' %}">Dashboard</a>
+        </li>
+
+    </ul>
+
+    <div class="profile-content">
+        <div style="font-family :Advent Pro ; color:black;background-color: white;font-size:70px;padding-top: none;margin-left: 15rem;margin-right: 4rem;">PROFILE</div>
+        <br>
+        <div style="font-size: 22px;color: #111; margin-left: 15rem;"> Name : {{ name }} </div>
+
+        <div style="font-size: 22px;color: #111;margin-left: 15rem;">Email Id : {{ email }}</div>
+        <!-- {{data}} -->
+        <!-- <p><img src="{{request.user.Info.profile_pic.url}}" alt=""></p>
+    {% if messages %} {% for message in messages%}<small {% if message.tags %} class="{{message.tags}}" {% endif %}>{{message}}</small>{% endfor %}{% endif %} -->
+
+
+        <div class="container">
+
+            <!--Simple Form-->
+
+            <form style="background: transparent;" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <span><input style="margin-left: 4rem;margin-top: 6rem;margin-left: 12rem;" type="file" name="upload" accept="image/*">
+                </span>
+                <br>
+                <button style="margin-left: 4rem;padding-left: 1rem;padding-right: 1rem;cursor: pointer;color: #111; margin-left: 12rem;" class="btn btn-dark my-4" type="submit">Submit</button>
+
+            </form>
+
+            <div style="color: #111;margin-left: 13rem;" class="anchor">
+
+                If you want to change a password ?
+                <a style="border: 1px solid black;padding: 0.2px;" href="{% url 'userapp:changepass' %}">Change Password</a>
+                <br> <a style="padding: 0.2rem 1rem;font-size: 1.3rem;border: 1px solid cornflowerblue;" href=" {% url 'userapp:logout' %} ">Logout</a>
+            </div>
+
+        </div>
+        <!--See Image Uploaded-->
+
+        <div class="row ">
+            {% if file_url %}
+            <div class="col-lg-4 col-md-6 col-sm-12 pb-4 ">
+                <img style="width: 200px; height: 200px; border-radius: 10rem;position: absolute;top: 15rem;left: 0;margin-left: 33rem; " src="{{ file_url }} " class="img-fluid ">
+                <br> {% else %} {% endif %}
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>

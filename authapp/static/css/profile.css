@@ -1,0 +1,9 @@
+body {
+    border: 1px solid black;
+    margin: 12em 28em;
+    border-radius: 1em;
+    box-shadow: 1px 2px black;
+    background-color: rgba(250, 235, 215, 0);
+    width: 19em;
+    height: 24em;
+}
